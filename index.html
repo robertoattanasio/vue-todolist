@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <title>VUE toDoList</title>
+</head>
+
+<body class="">
+
+    <div id="root" class="toDoList">
+        <img src="img/logo.png" alt="Boolean Logo" class="logo">
+        <div class="input_field">
+            <input v-model="insertItem" type="text" placeholder="Aggiungi alla lista">
+            <button v-on:click="pushItem(insertItem)">inserisci</button>
+        </div>
+
+
+        <div class="list_field">
+            <ul>
+                <li v-for="(itemList, indexItem) in toDoList">
+                    <div class="itemList">
+                        <i class="far fa-comment-dots"></i>
+                        <p> {{ itemList }}</p>
+                        <i class="fas fa-times" v-on:click="removeItem(indexItem)"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="suggest">
+            <p><strong>help:</strong> è possibile inserire il valore desiderato premendo il tasto 'enter' della tastiera.</p>
+        </div>
+    </div>
+
+    <!-- JS SCRIPT AND VUE.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

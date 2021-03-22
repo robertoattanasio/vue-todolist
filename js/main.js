@@ -14,10 +14,10 @@ var app = new Vue({
             // CHECK: se il valore è una stringa vuota o già esistente non viene aggiunto.
             if (this.insertItem == '') {
                 alert('Non è possibile inserire valori vuoti.');
-            } else if (this.toDoList.includes(insertItem)) {
+            } else if (this.toDoList.includes(insertItem.toLowerCase())) {
                 alert('Non è possibile inserire un valore esistente.');
             } else {
-                this.toDoList.push(insertItem);
+                this.toDoList.push(insertItem.toLowerCase());
             }
         }
     },
